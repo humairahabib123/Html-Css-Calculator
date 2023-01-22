@@ -37,6 +37,7 @@ body{
     margin-bottom: 12px;
     padding: 0 20px;
     font-weight: 500;
+    border: none;
 }
 .cal .keys span{
     position: relative;

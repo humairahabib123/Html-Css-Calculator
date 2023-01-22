@@ -1,18 +1,20 @@
-let keys = document.querySelector('.keys');
-let singleKey = document.querySelector('span')
-let value = document.querySelector('value');
 
-for (let i=0; i<singleKey; i++){
-    singleKey[i].addEventListener('click' , function(){
-        if (this.innerHTML == '='){
-            value.innerHTML = eval(value.innerHTML)
-        }else{
-            if(this.innerHTML=="DEL"){
-                value.innerHTML = "";
-            }
-            else{
-                result.innerHTML += this.innerHTML
-            }
+let string = '' ;
+let keys = document.querySelectorAll('.key');
+Array.from(keys).forEach((key)=>{
+    key.addEventListener('click' , (e)=>{
+        if(e.target.innerHTML == '='){
+            string = eval(string);
+            document.querySelector('input').value = string;
+        }
+        else if(e.target.innerHTML == 'DEL'){
+            string = '';
+            document.querySelector('input').value = string;
+        }
+        else{
+        console.log(e.target)
+        string = string + e.target.innerHTML;
+        document.querySelector('input').value = string;
         }
     })
-}
+})
